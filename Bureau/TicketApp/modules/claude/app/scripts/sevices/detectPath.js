@@ -1,6 +1,7 @@
 angular.module('claudeApp')
     .factory('detectPath', function ($q, $location) {
-        var path = '';
+        'use strict';
+        var path = false;
         return function () {
             if ($location.path() === '/') {
                 path = 'home';
@@ -19,5 +20,5 @@ angular.module('claudeApp')
             } else {
                 path = false;
             }
-        }
+        };
     });
