@@ -21,7 +21,7 @@
 
     <!-- Add your site or application content here -->
     <!-- ng-init="$root.connected = @connected"-->
-    <header></header>
+    <header ng-init="$root.connected = false"></header>
     <div id="contener">
         <ng-controls></ng-controls>
         <div data-ng-view
@@ -78,8 +78,7 @@
         <script src="scripts/sevices/detectPath.js"></script>
         <script src="scripts/sevices/detectSize.js"></script>
         <!--controllers-->
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+
         <!-- Components -->
                                 <!--header-->
                         <!--require search component-->
