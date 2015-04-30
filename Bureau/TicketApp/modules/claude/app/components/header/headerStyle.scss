@@ -1,0 +1,19 @@
+top-search-block {
+  left : 0;
+  width : 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  transform: translate3d(0, -1px, 0);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  max-width: 100%;
+}
+
+top-search-block > search-bar-contener {
+  width: 100%;
+  float: left;
+  padding: 0;
+  height:40px;
+  margin: 0;
+}
