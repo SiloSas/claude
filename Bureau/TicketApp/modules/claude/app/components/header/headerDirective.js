@@ -4,6 +4,6 @@ angular.module('claudeApp')
         return {
             controller: 'headerCtrl',
             restrict : 'E',
-            template : 'header.html'
+            templateUrl : 'components/header/header.html'
         }
     });

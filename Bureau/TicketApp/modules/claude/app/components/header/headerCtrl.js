@@ -1,11 +1,12 @@
 'use strict';
 angular.module('claudeApp')
-    .controller('headerCtrl', ['$scope', 'detectPath',
-        function ($scope, detectPath) {
+    .controller('headerCtrl', ['$scope', 'detectPath', 'detectSize',
+        function ($scope, detectPath, detectSize) {
 
             $scope.path = false;
 
-            detectPath().then(function (path) {
-                $scope.path = path
-            })
+            detectPath.getPath().then(function (path) {
+                $scope.path = path;
+            });
+
     }]);

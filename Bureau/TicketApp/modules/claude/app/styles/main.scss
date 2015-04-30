@@ -1,6 +1,8 @@
 // bower:scss
 // endbower
 @import "../modules/foundation/scss/foundation";
+@import "tools";
+@import "../components/header/headerStyle";
 
 .browsehappy {
   margin: 0.2em 0;

@@ -1,9 +1,8 @@
-<!--need search component-->
+<!-- require search component-->
 <top-search-block
-     class="column fixed"
-     data-ng-controller="topBarCtrl">
-    <search-bar-contener ng-if="$root.path == 'home' || $root.path == 'search'"
-         ng-class="{'hiddenBlock': $root.path != 'search','paddingTop50': $root.window == 'small'}">
+     class="column fixed">
+    <search-bar-contener ng-if="path == 'home' || path == 'search'"
+         ng-class="{'hiddenBlock': path != 'search','paddingTop50': $root.window == 'small'}">
         <ng-search-bar class="column large-8 medium-10 large-offset-2 medium-offset-1"
                        ng-class="{'padding0': $root.window == 'small'}">
         </ng-search-bar>
