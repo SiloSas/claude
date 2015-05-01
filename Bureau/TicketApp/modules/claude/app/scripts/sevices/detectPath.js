@@ -1,21 +1,21 @@
 angular.module('claudeApp')
-    .factory('detectPath', function ($q, $location, $rootScope) {
+    .factory('detectPath', function ($location, $rootScope) {
         'use strict';
-        var path = false;
+        var path = $location.path();
         function getPath () {
-            if ($location.path() === '/') {
+            if (path === '/') {
                 path = 'home';
-            } else if ($location.path() === '/search') {
+            } else if (path === '/search') {
                 path = 'search';
-            } else if ($location.path().indexOf('/artiste') > -1) {
+            } else if (path.indexOf('/artiste') > -1) {
                 path = 'artist';
-            } else if ($location.path().indexOf('/event') > -1) {
+            } else if (path.indexOf('/event') > -1) {
                 path = 'event';
-            } else if ($location.path().indexOf('/organizer') > -1) {
+            } else if (path.indexOf('/organizer') > -1) {
                 path = 'organizer';
-            } else if ($location.path().indexOf('/lieu') > -1) {
+            } else if (path.indexOf('/lieu') > -1) {
                 path = 'place';
-            } else if ($location.path().indexOf('/iframeEvents') > -1) {
+            } else if (path.indexOf('/iframeEvents') > -1) {
                 path = 'iframe';
             } else {
                 path = false;

@@ -1,16 +1,16 @@
 'use strict';
 describe('Factory: detectPath', function () {
-    var detectPath;
+    var detectPath, $rootScope, $location;
+
     beforeEach(module('claudeApp'));
-    beforeEach(function () {
-
-        inject(function ($injector) {
-            detectPath = $injector.get('detectPath');
-        });
-
-    });
+    beforeEach(inject(function (_detectPath_, _$rootScope_, _$location_) {
+        $location = _$location_;
+        spyOn($location, 'path').and.returnValue('/');
+        detectPath = _detectPath_;
+        $rootScope = _$rootScope_;
+    }));
 
     it('should return pathName', function () {
-        expect(detectPath).toBe('home');
+        expect($rootScope.path).toBe('home');
     });
 });
