@@ -4,7 +4,7 @@ angular.module('claudeApp')
 
     $scope.infos = [];
 
-    /*function getInfos() {
+    function getInfos() {
         largeHome.getInfos().then(function (infos) {
             $scope.infos = infos;
         });
@@ -14,7 +14,7 @@ angular.module('claudeApp')
 
     $rootScope.$watch('connected', function () {
         getInfos();
-    });*/
+    });
 
     function removeAnimations() {
         if ($localStorage.removedInfosMsg != undefined) {

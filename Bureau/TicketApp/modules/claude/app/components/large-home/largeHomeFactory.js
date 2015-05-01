@@ -1,4 +1,4 @@
-angular.module('claudeApp').factory('largeHome', function ($http, $q, $rootScope, $sce) {
+angular.module('claudeApp').factory('largeHome', function ($http, $q, $rootScope, $sce, ArtistsFactory) {
     var factory = {
         infos : [],
         getInfos : function () {
@@ -31,7 +31,7 @@ angular.module('claudeApp').factory('largeHome', function ($http, $q, $rootScope
                         factory.infos.push({content: $sce.trustAsHtml(info), title: title, artist: artist, fixedTitle: fixedTitle})
                     }
 
-                    /*function getEventsArtist(artist) {
+                    function getEventsArtist(artist) {
                         ArtistsFactory.getArtistEvents(artist.facebookUrl).then(function (events) {
                             var info = '';
                             var title;
@@ -62,7 +62,7 @@ angular.module('claudeApp').factory('largeHome', function ($http, $q, $rootScope
                     }
                     ArtistsFactory.getFollowArtists().then(function (artists) {
                         artists.forEach(getEventsArtist)
-                    });*/
+                    });
                     deferred.resolve(factory.infos);
                 })
             }
