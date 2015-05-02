@@ -1,16 +1,16 @@
 'use strict';
-describe('Factory: detectSize', function () {
-    var detectSize;
+describe('Factory: DetectSize', function () {
+    var DetectSize;
     beforeEach(module('claudeApp'));
     beforeEach(function () {
 
         inject(function ($injector) {
-            detectSize = $injector.get('detectSize');
+            DetectSize = $injector.get('DetectSize');
         });
 
     });
 
     it('should return windowSizeName', function () {
-        expect(detectSize()).toBe('large');
+        expect(DetectSize()).toBe('large');
     });
 });

@@ -1,19 +1,19 @@
 angular.module('claudeApp')
-.controller('LargeHomeCtrl', ['$scope', '$localStorage', '$timeout', 'largeHome',
-    function ($scope, $localStorage, $timeout, largeHome) {
+.controller('LargeHomeCtrl', ['$scope', '$localStorage', '$timeout', 'LargeHomeFactory', '$rootScope',
+    function ($scope, $localStorage, $timeout, LargeHomeFactory, $rootScope) {
 
     $scope.infos = [];
 
-    $scope.getInfos = function() {
-        largeHome.getInfos().then(function (infos) {
+    function getInfos () {
+        LargeHomeFactory.getInfos().then(function (infos) {
             $scope.infos = infos;
         });
-    };
+    }
 
-    $scope.getInfos();
+    getInfos();
 
     $rootScope.$watch('connected', function () {
-        $scope.getInfos();
+        getInfos();
     });
 
     function removeAnimations() {
@@ -44,7 +44,8 @@ angular.module('claudeApp')
         $scope.elementEnCours.animation = '';
     }
 
-    function updateInfo (i) {
+    var i = -1;
+    var updateInfo = setTimeout(function () {
         if (i === $scope.infos.length - 1) {
             i = 0;
         } else {
@@ -61,9 +62,7 @@ angular.module('claudeApp')
             removeAnimation(i)
         };
 
-        $timeout(updateInfo(i), 8000);
-    }
+    }, 8000);
 
     removeAnimations();
-    updateInfo(-1);
 }]);

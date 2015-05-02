@@ -1,11 +1,11 @@
 angular.module('claudeApp').
-    factory('websitesFactory', function () {
+    factory('WebsitesFactory', function () {
         var factory = {
             websites : {
                 iconWebsites : [],
                 otherWebsites : []
             },
-            refactorWebsites : function (websites, facebookUrl) {
+            normalizeWebsitesObject : function (websites, facebookUrl) {
                 for (var i = 0; i < websites.length; i++) {
                     websites[i] = {url: websites[i]};
                     if (websites[i].url.length > 0) {

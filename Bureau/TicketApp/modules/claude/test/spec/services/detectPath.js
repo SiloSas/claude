@@ -1,12 +1,12 @@
 'use strict';
-describe('Factory: detectPath', function () {
-    var detectPath, $rootScope, $location;
+describe('Factory: DetectPath', function () {
+    var DetectPath, $rootScope, $location;
 
     beforeEach(module('claudeApp'));
-    beforeEach(inject(function (_detectPath_, _$rootScope_, _$location_) {
+    beforeEach(inject(function (_DetectPath_, _$rootScope_, _$location_) {
         $location = _$location_;
         spyOn($location, 'path').and.returnValue('/');
-        detectPath = _detectPath_;
+        DetectPath = _DetectPath_;
         $rootScope = _$rootScope_;
     }));
 

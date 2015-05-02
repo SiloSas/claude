@@ -7,6 +7,7 @@ describe('Controller: LargeHomeCtrl', function () {
 
     var $ctrl,
         $localStorage,
+        LargeHomeFactory,
         $scope,
         $sce;
 
@@ -15,15 +16,7 @@ describe('Controller: LargeHomeCtrl', function () {
         $localStorage = _$localStorage_;
         $scope = _$rootScope_;
         $sce = _$sce_;
-        $scope.infos = [];
-        $ctrl = $controller('LargeHomeCtrl', {
-            $scope: $scope
-        });
-        $localStorage.removedInfosMsg = [];
-    }));
-
-    it('should inject info Id in $localStorage', function () {
-        $scope.infos.push({
+        var infos = [{
             id: 1,
             displayIfConnected: false,
             animation: {content: $sce.trustAsHtml('<p style="color: black; text-align: center">' +
@@ -43,8 +36,16 @@ describe('Controller: LargeHomeCtrl', function () {
                 'Pour enrgistrer vos playlist et faire connaitre à Claude vos artistes et vos lieux favoris ' +
                 '</b>' +
                 '</p>')
-        });
+        }];
+        spyOn(LargeHomeFactory, "getInfos").andReturn(infos);
 
+        $ctrl = $controller('LargeHomeCtrl', {
+            $scope: $scope
+        });
+        $localStorage.removedInfosMsg = [];
+    }));
+
+    it('should inject info Id in $localStorage', function () {
         $scope.pushInfoIdToLocalStorage(0);
         expect($localStorage.removedInfosMsg).toEqual([1]);
     });

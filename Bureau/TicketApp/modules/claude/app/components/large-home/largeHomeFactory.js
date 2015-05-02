@@ -1,4 +1,4 @@
-angular.module('claudeApp').factory('largeHome', function ($http, $q, $rootScope, $sce, ArtistsFactory) {
+angular.module('claudeApp').factory('LargeHomeFactory', function ($http, $q, $rootScope, $sce, ArtistsFactory) {
     var factory = {
         infos : [],
         getInfos : function () {

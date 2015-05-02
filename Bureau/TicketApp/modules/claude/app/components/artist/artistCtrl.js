@@ -1,8 +1,8 @@
 angular.module('claudeApp').
-controller('artistCtrl', ['$scope', '$localStorage', 'ArtistsFactory', '$timeout', '$filter', '$modal', '$rootScope',
-        'websitesFactory', '$routeParams',
+controller('ArtistCtrl', ['$scope', '$localStorage', 'ArtistsFactory', '$timeout', '$filter', '$modal', '$rootScope',
+        '$routeParams', 'WebsitesFactory',
     function ($scope, $localStorage, ArtistsFactory, $timeout, $filter, $modal, $rootScope, $routeParams,
-              websitesFactory) {
+              WebsitesFactory) {
 
         $scope.trackLimit = 12;
         $scope.trackTitle = '';
@@ -19,7 +19,7 @@ controller('artistCtrl', ['$scope', '$localStorage', 'ArtistsFactory', '$timeout
                 $scope.tracks = artist.tracks;
                 $rootScope.loadingTracks = false;
                 if (artist.websites != undefined) {
-                    $scope.websites = websitesFactory.refactorWebsites(artist.websites, $routeParams.facebookUrl);
+                    $scope.websites = WebsitesFactory.normalizeWebsitesObject(artist.websites, $routeParams.facebookUrl);
                 }
             });
             ArtistsFactory.getArtistEvents($routeParams.facebookUrl).then(function (events) {
