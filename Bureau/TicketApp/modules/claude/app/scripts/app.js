@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'mm.foundation',
-    'ngStorage'
+    'ngStorage',
+    'ng-oboe'
   ])
   .config(function ($routeProvider) {
     $routeProvider

@@ -1,6 +1,21 @@
-app.factory('ArtistsFactory', function ($http, $q, oboe) {
+angular.module('claudeApp').factory('ArtistsFactory', function ($http, $q, oboe, $rootScope, $timeout) {
     var factory = {
         artists : false,
+        getArtist : function (url) {
+            var deferred = $q.defer();
+            if(factory.artists == true){
+                deferred.resolve(factory.artists);
+            } else {
+                $http.get('/artists/' + url)
+                    .success(function(data, status){
+                        factory.artists = data;
+                        deferred.resolve(factory.artists);
+                    }).error(function(data, status){
+                        deferred.reject('erreur');
+                    });
+            }
+            return deferred.promise;
+        },
         getArtists : function (offset) {
             var deferred = $q.defer();
             if(factory.artists ==true){
@@ -161,6 +176,31 @@ app.factory('ArtistsFactory', function ($http, $q, oboe) {
                     })
             }
             return deferred.promise;
+        },
+        createNewArtistAndPassItToRootScope : function (artist) {
+            var searchPattern = document.getElementById('searchBar').value.trim();
+            $rootScope.artisteToCreate = true;
+            $rootScope.artist = artist;
+            $rootScope.tracks = [];
+            $rootScope.loadingTracks = true;
+            factory.postArtist(searchPattern, artist).then(function (tracks) {
+                $timeout(function () {
+                    $rootScope.$apply(function () {
+                        $rootScope.artist.tracks = $rootScope.artist.tracks.concat(tracks);
+                        $rootScope.tracks = $rootScope.artist.tracks;
+                    });
+                    if (tracks.length > 0) {
+                        $rootScope.loadingTracks = false;
+                    } else {
+                        $timeout(function () {
+                            $rootScope.loadingTracks = false;
+                        }, 1000)
+                    }
+                });
+            });
+        },
+        passArtisteToCreateToFalse : function () {
+            $rootScope.artisteToCreate = false;
         }
     };
     return factory;

@@ -4,16 +4,16 @@ angular.module('claudeApp')
 
     $scope.infos = [];
 
-    function getInfos() {
+    $scope.getInfos = function() {
         largeHome.getInfos().then(function (infos) {
             $scope.infos = infos;
         });
-    }
+    };
 
-    getInfos();
+    $scope.getInfos();
 
     $rootScope.$watch('connected', function () {
-        getInfos();
+        $scope.getInfos();
     });
 
     function removeAnimations() {
@@ -65,5 +65,5 @@ angular.module('claudeApp')
     }
 
     removeAnimations();
-  //  updateInfo(-1);
+    updateInfo(-1);
 }]);

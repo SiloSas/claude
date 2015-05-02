@@ -4,7 +4,7 @@ angular.module('claudeApp').factory('largeHome', function ($http, $q, $rootScope
         getInfos : function () {
             var deferred = $q.defer();
             if ($rootScope.connected === false) {
-                $http.get('/infos').success(function (data, status, headers, config) {
+                $http.get('/infos').success(function (data) {
                    function pushInfo (info) {
                        info.content = $sce.trustAsHtml(info.content);
                        info.animationContent = $sce.trustAsHtml(info.animationContent);
@@ -13,10 +13,11 @@ angular.module('claudeApp').factory('largeHome', function ($http, $q, $rootScope
                    }
                    data.forEach(pushInfo);
                    deferred.resolve(factory.infos);
-                }).error(function (data, status, headers, config) {
+                }).error(function () {
                 });
+                return deferred.promise;
             } else if ($rootScope.connected === true) {
-                $http.get('/infos').success(function (data, status, headers, config) {
+                $http.get('/infos').success(function (data) {
 
                     function pushInfo(info) {
                         if (info.displayIfConnected === true) {
@@ -64,7 +65,8 @@ angular.module('claudeApp').factory('largeHome', function ($http, $q, $rootScope
                         artists.forEach(getEventsArtist)
                     });
                     deferred.resolve(factory.infos);
-                })
+                });
+                return deferred.promise;
             }
         }
     };
