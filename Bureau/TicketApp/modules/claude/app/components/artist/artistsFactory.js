@@ -1,4 +1,5 @@
-angular.module('claudeApp').factory('ArtistsFactory', function ($http, $q, oboe, $rootScope, $timeout) {
+angular.module('claudeApp').factory('ArtistsFactory', ['$http', '$q', 'oboe', '$rootScope',  '$timeout',
+    function ($http, $q, oboe, $rootScope, $timeout) {
     var factory = {
         artists : false,
         getArtist : function (url) {
@@ -204,4 +205,4 @@ angular.module('claudeApp').factory('ArtistsFactory', function ($http, $q, oboe,
         }
     };
     return factory;
-});
+}]);

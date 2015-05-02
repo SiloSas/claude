@@ -11,6 +11,6 @@ describe('Factory: DetectSize', function () {
     });
 
     it('should return windowSizeName', function () {
-        expect(DetectSize()).toBe('large');
+        expect(DetectSize).toBe(false);
     });
 });

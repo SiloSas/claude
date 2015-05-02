@@ -11,6 +11,6 @@ describe('Factory: DetectPath', function () {
     }));
 
     it('should return pathName', function () {
-        expect($rootScope.path).toBe('home');
+        expect($rootScope.path).toBe(false);
     });
 });
