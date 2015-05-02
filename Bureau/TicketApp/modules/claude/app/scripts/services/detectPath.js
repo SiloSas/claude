@@ -1,5 +1,5 @@
 angular.module('claudeApp')
-    .factory('DetectPath', function ($location, $rootScope) {
+    .factory('DetectPath', ['$location', '$rootScope', function ($location, $rootScope) {
         'use strict';
         var path = $location.path();
         function getPath () {
@@ -27,4 +27,4 @@ angular.module('claudeApp')
             getPath()
         });
         return path;
-    });
+    }]);
