@@ -169,7 +169,7 @@ angular.module('claudeApp').factory('ArtistsFactory', ['$http', '$q', 'oboe', '$
             if(factory.artists == true){
                 deferred.resolve(factory.artists);
             } else {
-                $http.get('/artists/'+ id + '/events ').
+                $http.get('/artists/'+ id + '/events').
                     success(function (data) {
                         deferred.resolve(data);
                     }).error(function (data) {

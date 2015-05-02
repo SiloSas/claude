@@ -1,14 +1,13 @@
 angular.module('claudeApp').
-controller('ArtistCtrl', ['$scope', '$localStorage', 'ArtistsFactory', '$timeout', '$filter', '$modal', '$rootScope',
-        '$routeParams', 'WebsitesFactory',
-    function ($scope, $localStorage, ArtistsFactory, $timeout, $filter, $modal, $rootScope, $routeParams,
-              WebsitesFactory) {
+controller('ArtistCtrl', ['$scope', '$localStorage', 'ArtistsFactory', '$timeout', '$filter',
+        '$modal', '$rootScope', '$routeParams', 'WebsitesFactory',
+    function ($scope, $localStorage, ArtistsFactory, $timeout, $filter, $modal, $rootScope,
+              $routeParams, WebsitesFactory) {
 
         $scope.trackLimit = 12;
         $scope.trackTitle = '';
         $scope.showDesc = false;
         $scope.selectedTab = 0;
-
         if ($rootScope.artisteToCreate == false) {
             $scope.tracks = [];
             $scope.artist = [];
@@ -19,12 +18,13 @@ controller('ArtistCtrl', ['$scope', '$localStorage', 'ArtistsFactory', '$timeout
                 $scope.tracks = artist.tracks;
                 $rootScope.loadingTracks = false;
                 if (artist.websites != undefined) {
-                    $scope.websites = WebsitesFactory.normalizeWebsitesObject(artist.websites, $routeParams.facebookUrl);
+                    $scope.websites = WebsitesFactory.normalizeWebsitesObject(artist.websites,
+                        $routeParams.facebookUrl);
                 }
+                ArtistsFactory.getArtistEvents(artist.artistId).then(function (events) {
+                    $scope.artist.events = events;
+                })
             });
-            ArtistsFactory.getArtistEvents($routeParams.facebookUrl).then(function (events) {
-                $scope.artist.events = events;
-            })
         } else {
             $scope.selectedTab = 1;
             ArtistsFactory.passArtisteToCreateToFalse();
@@ -43,7 +43,8 @@ controller('ArtistCtrl', ['$scope', '$localStorage', 'ArtistsFactory', '$timeout
         $scope.filterTracks = function () {
             $timeout(function () {
                 $scope.$apply(function(){
-                    $scope.artist.tracks = $filter('filter')($scope.tracks, {title: $scope.trackTitle})
+                    $scope.artist.tracks = $filter('filter')($scope.tracks,
+                        {title: $scope.trackTitle})
                 })
             }, 0)
         };

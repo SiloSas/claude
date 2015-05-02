@@ -1,9 +1,9 @@
 <div class="block_min">
     <div class="img_min">
         <div class="toGrow">
-            <a href="#/artiste/{{artist.facebookUrl}}">
-                <img src="{{artist.imagePath}}" alt="une belle image" class="min"/>
-            </a>
+            <img ng-click="createArtist(artist)"
+                 src="{{ artist.imagePath }}"
+                 alt="une belle image" class="min pointer"/>
         </div>
         <div class="absolute top0">
             <i ng-repeat="genre in artist.genres"
@@ -20,7 +20,7 @@
                            }">
             </i>
         </div>
-        <a href="#/artiste/{{artist.facebookUrl}}">
+        <a ng-click="createArtist(artist)">
             <h3 class="minTitle">
                 {{ artist.name }}
             </h3>

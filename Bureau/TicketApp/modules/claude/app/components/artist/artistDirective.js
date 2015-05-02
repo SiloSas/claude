@@ -5,3 +5,12 @@ angular.module('claudeApp').
             templateUrl: 'components/artist/artistMin.html'
         }
     });
+
+angular.module('claudeApp').
+    directive('artistFacebookMin', function () {
+        return {
+            restrict : 'E',
+            templateUrl: 'components/artist/artistFacebookMin.html',
+            controller: 'ArtistFacebookMinCtrl'
+        }
+    });

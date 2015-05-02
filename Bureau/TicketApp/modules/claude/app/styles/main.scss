@@ -67,6 +67,10 @@
   margin-top: -26px;
 }
 
+.minFilter:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 /* Space out content a bit */
 html, body, #contener { height: 100%;}
 html {overflow-x: hidden;}
