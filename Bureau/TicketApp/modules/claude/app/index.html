@@ -74,6 +74,7 @@
         <!--Module-->
         <script src="modules/foundation/mm-foundation.min.js"></script>
         <script src="modules/ngStorage.min.js"></script>
+        <script src="modules/angular-component/angular-material.min.js"></script>
         <script src="scripts/app.js"></script>
         <!--services-->
         <script src="scripts/sevices/detectPath.js"></script>
@@ -81,18 +82,25 @@
         <!--controllers-->
 
         <!-- Components -->
-                                <!--artist-->
-            <script src="components/artist/artistsFactory.js"></script>
+                            <!--websites-->
+        <script src="components/websites/websitesFactory.js"></script>
+        <script src="components/websites/websitesDirective.js"></script>
 
-                                <!--header-->
-                        <!--require search component-->
-            <script src="components/header/headerCtrl.js"></script>
-            <script src="components/header/headerDirective.js"></script>
+                            <!--artist-->
+                    <!--require websites component-->
+        <script src="components/artist/artistsFactory.js"></script>
+        <script src="components/artist/artistCtrl.js"></script>
+        <script src="components/artist/artistDirective.js"></script>
 
-                                <!--large-home-->
-                        <!--require artist component-->
-            <script src="components/large-home/largeHomeFactory.js"></script>
-            <script src="components/large-home/LargeHomeCtrl.js"></script>
+                            <!--header-->
+                    <!--require search component-->
+        <script src="components/header/headerCtrl.js"></script>
+        <script src="components/header/headerDirective.js"></script>
+
+                            <!--large-home-->
+                    <!--require artist component-->
+        <script src="components/large-home/largeHomeFactory.js"></script>
+        <script src="components/large-home/LargeHomeCtrl.js"></script>
         <!-- endbuild -->
 </body>
 </html>
