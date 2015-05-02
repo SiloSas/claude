@@ -20,7 +20,8 @@ angular
     'ngTouch',
     'mm.foundation',
     'ngStorage',
-    'ng-oboe'
+    'ng-oboe',
+    'ngMap'
   ])
   .config(function ($routeProvider) {
     $routeProvider

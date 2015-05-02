@@ -1,16 +1,44 @@
 angular.module('claudeApp').
-    directive('artistMin', function () {
+    directive('artistMin', ['$window', '$rootScope', '$scope',
+        function ($window, $rootScope, $scope) {
         return {
             restrict : 'E',
-            templateUrl: 'components/artist/artistMin.html'
+            templateUrl: 'components/artist/artistMin.html',
+            scope : true,
+            link : function (element) {
+                function resizeElem () {
+                    if ($rootScope.window != 'small') {
+                        $(element).Height = 94 + (($(element).clientWidth * 0.376) / 2);
+                    }
+                }
+                resizeElem();
+                $window.addEventListener('resize', resizeElem);
+                $scope.$on('$destroy', function () {
+                    $window.removeEventListener('resize', resizeElem);
+                })
+            }
         }
-    });
+    }]);
 
 angular.module('claudeApp').
-    directive('artistFacebookMin', function () {
+    directive('artistFacebookMin', ['$window', '$rootScope', '$scope',
+        function ($window, $rootScope, $scope) {
         return {
             restrict : 'E',
             templateUrl: 'components/artist/artistFacebookMin.html',
-            controller: 'ArtistFacebookMinCtrl'
+            controller: 'ArtistFacebookMinCtrl',
+            scope : true,
+            link : function (element) {
+                function resizeElem () {
+                    if ($rootScope.window != 'small') {
+                        $(element).Height = 94 + (($(element).clientWidth * 0.376) / 2);
+                    }
+                }
+                resizeElem();
+                $window.addEventListener('resize', resizeElem);
+                $scope.$on('$destroy', function () {
+                    $window.removeEventListener('resize', resizeElem);
+                })
+            }
         }
-    });
+    }]);

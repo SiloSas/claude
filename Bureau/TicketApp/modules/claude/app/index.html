@@ -71,10 +71,13 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <!--Module-->
+        <!--Modules-->
         <script src="modules/foundation/mm-foundation.min.js"></script>
         <script src="modules/ngStorage.min.js"></script>
         <script src="modules/angular-component/angular-material.min.js"></script>
+        <script src="modules/map/ng-map.js"></script>
+        <script src="modules/map/gmap.js"></script>
+        <script src="modules/map/directions.js"></script>
         <script src="scripts/app.js"></script>
         <!--services-->
         <script src="scripts/services/detectPath.js"></script>
@@ -82,16 +85,29 @@
         <!--controllers-->
 
         <!-- Components -->
+                            <!--parallax-->
+        <script src="components/parallax/parallaxDirective.js"></script>
+
                             <!--websites-->
         <script src="components/websites/websitesFactory.js"></script>
         <script src="components/websites/websitesDirective.js"></script>
 
+                            <!--map-->
+        <script src="components/map/mapCtrl.js"></script>
+        <script src="components/map/mapDirective.js"></script>
+
                             <!--artist-->
-                <!--require websites and search component-->
+                        <!--require websites-->
         <script src="components/artist/artistsFactory.js"></script>
         <script src="components/artist/artistCtrl.js"></script>
         <script src="components/artist/artistFacebookMinCtrl.js"></script>
         <script src="components/artist/artistDirective.js"></script>
+
+                            <!--event-->
+                        <!--require map-->
+        <script src="components/events/eventsFactory.js"></script>
+        <script src="components/events/eventDirectives.js"></script>
+        <script src="components/events/eventCtrl.js"></script>
 
                             <!--header-->
                     <!--require search component-->

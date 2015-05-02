@@ -5,10 +5,12 @@
 @import "font-awesome";
 @import "foundation-icons";
 @import "tools";
+@import "../components/parallax/parallax";
 @import "../modules/angular-component/angular-material";
 @import "../modules/angular-component/default-theme";
 @import "../components/header/headerStyle";
 @import "../components/large-home/largeHome";
+@import "../components/events/events";
 
 
 .browsehappy {
@@ -71,6 +73,24 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+.img-circularPlayer:hover > .playInImg {
+  display: block;
+}
+.img-circularPlayer{
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  margin: 5px;
+  float: left;
+}
+
 /* Space out content a bit */
 html, body, #contener { height: 100%;}
 html {overflow-x: hidden;}
@@ -83,4 +103,7 @@ body {padding-bottom: 0; color: #5a5a5a;}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
+  .iClose, .img-circularPlayer, .playInImg {
+    display: block;
+  }
 }
