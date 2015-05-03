@@ -10,8 +10,6 @@ angular.module('claudeApp')
         });
     }
 
-    getInfos();
-
     $rootScope.$watch('connected', function () {
         getInfos();
     });

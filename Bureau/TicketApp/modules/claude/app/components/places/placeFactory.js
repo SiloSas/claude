@@ -1,4 +1,4 @@
-app.factory ('PlaceFactory', ['$http', '$q', 'EventsFactory',
+angular.module('claudeApp').factory ('PlaceFactory', ['$http', '$q', 'EventsFactory',
     function ($http, $q, EventsFactory){
     var factory = {
         places : false,

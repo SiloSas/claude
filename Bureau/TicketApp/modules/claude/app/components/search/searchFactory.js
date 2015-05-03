@@ -1,4 +1,4 @@
-angular.module('claude').factory(['$rootScope', function ($rootScope) {
+angular.module('claudeApp').factory('SearchFactory', ['$rootScope', function ($rootScope) {
     var factory = {
         initSearch : false,
         init : function () {
@@ -22,5 +22,6 @@ angular.module('claude').factory(['$rootScope', function ($rootScope) {
             }
         }
     };
+    factory.init();
     return factory;
 }]);

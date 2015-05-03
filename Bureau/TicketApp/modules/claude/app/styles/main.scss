@@ -11,6 +11,7 @@
 @import "../components/large-home/largeHome";
 @import "../components/events/events";
 @import "../components/footer/footer";
+@import "../components/search/search";
 
 
 .browsehappy {
@@ -96,10 +97,158 @@ html, body, #contener { height: 100%;}
 html {overflow-x: hidden;}
 body > #contener { height: auto; min-height: 100%; overflow: hidden;}
 body {padding-bottom: 0; color: #5a5a5a;}
-
+.wrapper-outer {width: 100%; padding-bottom: 200px; float: left;}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 
 
+.fi-soundcloud {
+  background-image: url('../img/logoBlackSoundcloud.png');
+  width: 44px;
+  height: 31px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.fi-reggae {
+  background-image: url('../img/rasta.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+.fi-hip-hop{
+  background-image: url('../img/rap.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+.fi-jazz{
+  background-image: url('../img/jazz.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+/*.fi-latin{
+    background-image: url('../img/);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+}*/
+.fi-electro{
+  background-image: url('../img/electro.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+.fi-world{}
+.fi-classique{}
+.fi-rock{
+  background-image: url('../img/rock.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+.fi-chanson{
+  background-image: url('../img/accoustique.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+.fi-claude {
+  background-image: url('../img/logo.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  height: 60px;
+  width: 50px;
+}
+.fi-claude-min {
+  background-image: url('../img/claude%20icone%203.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+.fi-mixcloud {
+  background-image: url('../img/mixcloud-logo.png');
+  width: 44px;
+  height: 31px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/*pages*/
+.dropDown {
+  padding-bottom: 5px;
+  margin: 0;
+}
+.f-dropdown:before, .f-dropdown:after {
+  display:none!important;
+}
+md-toast{position: fixed!important;}
+.f-dropdown{opacity: 0;}
+@keyframes drop {
+  from {left: -99999px; opacity: 0}
+  to {left: 0; opacity: 1}
+}
+.dropDown:hover > .f-dropdown {
+  position: absolute;
+  float: left;
+  left: 20px;
+  max-width: 90%;
+  -webkit-animation-delay: .5s;
+  -moz-animation-delay: .5s;
+  -ms-animation-delay: .5s;
+  -o-animation-delay: .5s;
+  -webkit-transition-delay: .5s;
+  -moz-transition-delay: .5s;
+  -ms-transition-delay: .5s;
+  -o-transition-delay: .5s;
+  -webkit-animation-duration: .8s;
+  -moz-animation-duration:.8s;
+  -ms-animation-duration:.8s;
+  -o-animation-duration:.8s;
+  -webkit-animation-name: drop;
+  -moz-animation-name: drop;
+  -ms-animation-name: drop;
+  -o-animation-name: drop;
+  opacity: 1;
+}
+.f-dropdown:hover {
+  opacity: 1;
+}
+.f-dropdown > li:hover {
+  background: white!important;
+}
+.imgBlur {
+  -webkit-filter: sepia(0.5) blur(2px);
+  -moz-filter: sepia(0.5) blur(2px);
+  -ms-filter: sepia(0.5) blur(2px);
+  -o-filter: sepia(0.5) blur(2px);
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {

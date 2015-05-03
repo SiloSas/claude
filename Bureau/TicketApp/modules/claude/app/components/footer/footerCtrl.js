@@ -13,7 +13,7 @@ angular.module('claudeApp').controller('footerCtrl', function ($scope, $modal) {
         modalInstance.result.then();
     }
 });
-app.controller('modalFooterCtrl', function ($scope, $modalInstance, content) {
+angular.module('claudeApp').controller('modalFooterCtrl', function ($scope, $modalInstance, content) {
     $scope.content = content;
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
