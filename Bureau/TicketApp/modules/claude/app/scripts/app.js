@@ -21,6 +21,7 @@ angular
     'mm.foundation',
     'ngStorage',
     'ng-oboe',
+    'ngMaterial',
     'ngMap'
   ])
   .config(function ($routeProvider) {

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('claudeApp')
-    .controller('headerCtrl', ['$scope', 'detectPath', 'detectSize',
-        function () {
+    .controller('headerCtrl', ['$scope', 'DetectPath', 'DetectSize',
+        function ($scope, DetectPath, DetectSize) {
 
     }]);

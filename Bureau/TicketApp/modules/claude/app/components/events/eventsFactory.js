@@ -1,4 +1,4 @@
-app.factory ('EventsFactory', function ($http, $q){
+angular.module('claudeApp').factory ('EventsFactory', function ($http, $q){
     var factory = {
         events : false,
         getEvents : function (start, geoloc, offset) {
@@ -21,7 +21,7 @@ app.factory ('EventsFactory', function ($http, $q){
             if(factory.events == true){
                 deferred.resolve(factory.events);
             } else {
-                $http.get('/event/' + id)
+                $http.get('/events/' + id)
                     .success(function(data, status){
                         factory.events = data;
                         deferred.resolve(factory.events);

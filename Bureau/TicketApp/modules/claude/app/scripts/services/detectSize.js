@@ -1,4 +1,5 @@
-angular.module('claudeApp').factory('DetectSize', ['mediaQueries', '$window', '$rootScope', function (mediaQueries, $window, $rootScope) {
+angular.module('claudeApp').factory('DetectSize', ['mediaQueries', '$window', '$rootScope',
+    function (mediaQueries, $window, $rootScope) {
     var size = false;
     function watchSize () {
         function detectSize() {

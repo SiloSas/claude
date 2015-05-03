@@ -1,4 +1,4 @@
-angular.module('claudeApp').factory('LargeHomeFactory', ['$http', '$q', '$rootScope', '$sce', 'ArtistFactory',
+angular.module('claudeApp').factory('LargeHomeFactory', ['$http', '$q', '$rootScope', '$sce', 'ArtistsFactory',
     function ($http, $q, $rootScope, $sce, ArtistsFactory) {
     var factory = {
         infos : [],

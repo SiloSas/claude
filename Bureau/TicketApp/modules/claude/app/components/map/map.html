@@ -1,6 +1,6 @@
 <map ng-if="map && adresses"
      zoom="{{zoom}}"
-     center="[{{map.addresse.geographicPoint}}]"
+     center="[{{geographicPoint}}]"
      scrollwheel="false"
      navigationControl="false"
      disable-default-u-i="true"
@@ -34,9 +34,9 @@
             panel="directions-panel"
             travel-mode="{{travelMode}}"
             origin="{{start}}"
-            destination="{{map.addresse.geographicPoint}}">
+            destination="{{geographicPoint}}">
     </directions>
-    <marker visible="true" position="{{map.addresse.geographicPoint}}" >
+    <marker visible="true" position="{{geographicPoint}}" >
     </marker>
     <transit-layer></transit-layer>
 </map>

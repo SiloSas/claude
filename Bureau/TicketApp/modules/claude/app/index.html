@@ -73,15 +73,19 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <!--Modules-->
         <script src="modules/foundation/mm-foundation.min.js"></script>
+        <script src="modules/hammerjs/hammer.min.js"></script>
+        <script src="modules/hammerjs/angular-hammer.js"></script>
         <script src="modules/ngStorage.min.js"></script>
         <script src="modules/angular-component/angular-material.min.js"></script>
-        <script src="modules/map/ng-map.js"></script>
+        <script src="modules/map/ng-map.min.js"></script>
         <script src="modules/map/gmap.js"></script>
-        <script src="modules/map/directions.js"></script>
+        <script src="modules/oboe.js"></script>
+        <script src="scripts/jquery-1.11.0.js"></script>
         <script src="scripts/app.js"></script>
         <!--services-->
         <script src="scripts/services/detectPath.js"></script>
         <script src="scripts/services/detectSize.js"></script>
+        <script src="scripts/services/refactorGeopoint.js"></script>
         <!--controllers-->
 
         <!-- Components -->
@@ -118,6 +122,7 @@
                     <!--require artist component-->
         <script src="components/large-home/largeHomeFactory.js"></script>
         <script src="components/large-home/LargeHomeCtrl.js"></script>
+        <script src="components/large-home/LargeHomeDirective.js"></script>
         <!-- endbuild -->
 </body>
 </html>

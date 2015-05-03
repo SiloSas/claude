@@ -1,6 +1,5 @@
 angular.module('claudeApp')
     .factory('DetectPath', ['$location', '$rootScope', function ($location, $rootScope) {
-        'use strict';
         var path = $location.path();
         function getPath () {
             if (path === '/') {
