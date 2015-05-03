@@ -25,24 +25,14 @@ angular.module('claudeApp').controller('toolsCtrl', function ($scope, $modal, $l
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
 
-angular.module('claudeApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance, $rootScope, items, connected, $http, $modal) {
-    $scope.items = items;
+angular.module('claudeApp').controller('ModalInstanceCtrl', ['$scope', '$modalInstance', '$rootScope',
+'$http', 'InfoModal',
+    function ($scope, $modalInstance, $rootScope, $http, InfoModal) {
     $scope.logout = function () {
         $http.get('/logout').
             success(function (data) {
                 $rootScope.connected = false;
-                $scope.info = 'vous êtes deconnecté';
-                var modalInstance = $modal.open({
-                    templateUrl: 'assets/partials/_infoModal.html',
-                    controller: 'infoModalCtrl',
-                    resolve: {
-                        info: function () {
-                            return $scope.info;
-                        }
-                    }
-                });
-                modalInstance.result.then(function () {
-                });
+                InfoModal.displayInfo('vous êtes deconnecté')
             })
     };
     $scope.getPlaylists = function() {
@@ -66,5 +56,5 @@ angular.module('claudeApp').controller('ModalInstanceCtrl', function ($scope, $m
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
-});
+}]);
 

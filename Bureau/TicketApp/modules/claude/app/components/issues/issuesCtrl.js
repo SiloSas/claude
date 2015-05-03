@@ -1,6 +1,6 @@
 angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$modal',
-    'IssuesFactory', 'InfoModal',
-    function ($scope, $rootScope, $modal, IssuesFactory, InfoModal) {
+    'IssuesFactory', 'InfoModal', 'StoreRequest',
+    function ($scope, $rootScope, $modal, IssuesFactory, InfoModal, StoreRequest) {
     $scope.newComment= [];
     $scope.newIssue= [];
     $scope.issues = [];
@@ -29,7 +29,7 @@ angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$
             }).error(function (data) {
                 if (data.error == 'Credentials required') {
                     var object = {content: $scope.newComment.content};
-                    $rootScope.storeLastReq('post', '/issues', object, 'votre issue' + $scope.newIssue.title + 'est enregistée');
+                    storeRequest.StoreRequest('post', '/issues', object, 'votre issue' + $scope.newIssue.title + 'est enregistée');
                     $rootScope.$watch('lastReq', function (newVal) {
 
                         if (JSON.stringify(newVal) === '{}') {
@@ -53,7 +53,7 @@ angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$
             error(function (data) {
                 if (data.error == 'Credentials required') {
                     var object = {content: $scope.newIssue.content, title: $scope.newIssue.title};
-                    $rootScope.storeLastReq('post', '/issues', object, 'votre issue' + $scope.newIssue.title + 'est enregistée');
+                    StoreRequest.storeRequest('post', '/issues', object, 'votre issue' + $scope.newIssue.title + 'est enregistée');
                     $rootScope.$watch('lastReq', function (newVal) {
 
                         if (JSON.stringify(newVal) === '{}') {
