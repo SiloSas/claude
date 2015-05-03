@@ -9,6 +9,8 @@ angular.module('claudeApp').
                     $scope.geographicPoint =
                         RefactorGeopoint.refactorGeopoint(event.addresses[0].geographicPoint);
                     $scope.adresses = true;
+                    $scope.mapHeight = '300px';
+                    $scope.map = true;
                 }
             })
     }]);

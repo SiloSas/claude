@@ -1,5 +1,6 @@
-angular.module('claudeApp').factory('ArtistsFactory', ['$http', '$q', 'oboe', '$rootScope',  '$timeout',
-    function ($http, $q, oboe, $rootScope, $timeout) {
+angular.module('claudeApp').factory('ArtistsFactory', ['$http', '$q', 'oboe', '$rootScope',
+    '$timeout', 'EventsFactory',
+    function ($http, $q, oboe, $rootScope, $timeout, EventsFactory) {
     var factory = {
         artists : false,
         getArtist : function (url) {
@@ -171,6 +172,7 @@ angular.module('claudeApp').factory('ArtistsFactory', ['$http', '$q', 'oboe', '$
             } else {
                 $http.get('/artists/'+ id + '/events').
                     success(function (data) {
+                        data.forEach(EventsFactory.colorEvent);
                         deferred.resolve(data);
                     }).error(function (data) {
                         deferred.resolve('error');

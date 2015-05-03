@@ -1,7 +1,7 @@
 angular.module('claudeApp').factory ('EventsFactory', function ($http, $q){
     var factory = {
         events : false,
-        refcatorTicketsInfo : function (event) {
+        refactorTicketsInfo : function (event) {
             if (event.ticketSellers != undefined) {
                 if (event.ticketSellers.indexOf("digitick") > -1) {
                     event.ticketPlatform = "digitick";
@@ -33,6 +33,20 @@ angular.module('claudeApp').factory ('EventsFactory', function ($http, $q){
             }
             return event;
         },
+        colorEvent : function (event) {
+            event.priceColor = '#2DAAE1';
+            if (event.tariffRange != undefined) {
+                var tariffs = event.tariffRange.split('-');
+                if (tariffs[1] > tariffs[0]) {
+                    event.tariffRange = tariffs[0].replace('.0', '') + ' - ' +
+                        tariffs[1].replace('.0', '') + '€';
+                } else {
+                    event.tariffRange = tariffs[0].replace('.0', '') + '€';
+                }
+                event.priceColor = 'rgb(' + tariffs[0]*2 + ',' + (200 - (tariffs[0]*4 ) )+
+                    ',' + tariffs[0]*4 + ')'
+            }
+        },
         getEvents : function (start, geoloc, offset) {
             var deferred = $q.defer();
             if(factory.events == true){
@@ -40,6 +54,7 @@ angular.module('claudeApp').factory ('EventsFactory', function ($http, $q){
             } else {
                 $http.get('/events/inInterval/' + start + '/' + geoloc + '/12/' + offset)
                     .success(function(data, status){
+                        data.forEach(factory.colorEvent);
                         factory.events = data;
                         deferred.resolve(factory.events);
                     }).error(function(data, status){
@@ -55,7 +70,7 @@ angular.module('claudeApp').factory ('EventsFactory', function ($http, $q){
             } else {
                 $http.get('/events/' + id)
                     .success(function(data, status){
-                        data = factory.refcatorTicketsInfo(data);
+                        data = factory.refactorTicketsInfo(data);
                         factory.events = data;
                         deferred.resolve(factory.events);
                     }).error(function(data, status){
