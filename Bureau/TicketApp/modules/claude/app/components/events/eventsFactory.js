@@ -1,6 +1,38 @@
 angular.module('claudeApp').factory ('EventsFactory', function ($http, $q){
     var factory = {
         events : false,
+        refcatorTicketsInfo : function (event) {
+            if (event.ticketSellers != undefined) {
+                if (event.ticketSellers.indexOf("digitick") > -1) {
+                    event.ticketPlatform = "digitick";
+                }
+                if (event.ticketSellers.indexOf("weezevent") > -1) {
+                    event.ticketPlatform = "weezevent";
+                }
+                if (event.ticketSellers.indexOf("yurplan") > -1) {
+                    event.ticketPlatform = "yurplan";
+                }
+                if (event.ticketSellers.indexOf("eventbrite") > -1) {
+                    event.ticketPlatform = "eventbrite";
+                }
+                if (event.ticketSellers.indexOf("ticketmaster") > -1) {
+                    event.ticketPlatform = "ticketmaster";
+                }
+                if (event.ticketSellers.indexOf("ticketnet") > -1) {
+                    event.ticketPlatform = "ticketnet";
+                }
+            }
+            if (event.tariffRange != undefined) {
+                var tariffs = event.tariffRange.split('-');
+
+                if (tariffs[1] > tariffs[0]) {
+                    event.tariffRange = tariffs[0] + '€ - ' + tariffs[1] + '€';
+                } else {
+                    event.tariffRange = tariffs[0] + '€';
+                }
+            }
+            return event;
+        },
         getEvents : function (start, geoloc, offset) {
             var deferred = $q.defer();
             if(factory.events == true){
@@ -23,6 +55,7 @@ angular.module('claudeApp').factory ('EventsFactory', function ($http, $q){
             } else {
                 $http.get('/events/' + id)
                     .success(function(data, status){
+                        data = factory.refcatorTicketsInfo(data);
                         factory.events = data;
                         deferred.resolve(factory.events);
                     }).error(function(data, status){

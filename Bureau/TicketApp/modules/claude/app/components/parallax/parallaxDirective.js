@@ -1,5 +1,5 @@
 angular.module('claudeApp').
-    directive('parallaxContent', ['$rootScope', '$window',
+    directive('parallaxContent', ['$rootScope', '$window', 'DetectPath',
         function ($rootScope, $window, DetectPath) {
         return {
             restrict : 'C',
