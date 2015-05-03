@@ -1,5 +1,6 @@
-angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$modal', 'IssuesFactory',
-    function ($scope, $rootScope, $modal, IssuesFactory) {
+angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$modal',
+    'IssuesFactory', 'InfoModal',
+    function ($scope, $rootScope, $modal, IssuesFactory, InfoModal) {
     $scope.newComment= [];
     $scope.newIssue= [];
     $scope.issues = [];
@@ -36,19 +37,7 @@ angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$
                         }
                     })
                 } else {
-                    $scope.info = 'Désolé une erreur s\'est produite';
-                    var modalInstance = $modal.open({
-                        templateUrl: 'assets/partials/_infoModal.html',
-                        controller: 'infoModalCtrl',
-                        resolve: {
-                            info: function () {
-                                return $scope.info;
-                            }
-                        }
-                    });
-                    modalInstance.result.then(function () {
-                        $log.info('Modal dismissed at: ' + new Date());
-                    });
+                    InfoModal.displayInfo('Désolé une erreur s\'est produite')
                 }
             });
         $scope.newComment= [];
@@ -72,19 +61,7 @@ angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$
                         }
                     })
                 } else {
-                    $scope.info = 'Désolé une erreur s\'est produite';
-                    var modalInstance = $modal.open({
-                        templateUrl: 'assets/partials/_infoModal.html',
-                        controller: 'infoModalCtrl',
-                        resolve: {
-                            info: function () {
-                                return $scope.info;
-                            }
-                        }
-                    });
-                    modalInstance.result.then(function () {
-                        $log.info('Modal dismissed at: ' + new Date());
-                    });
+                    InfoModal.displayInfo('Désolé une erreur s\'est produite')
                 }
             })
     };*/
