@@ -1,7 +1,7 @@
 angular.module('claudeApp').controller('searchCtrl', ['$scope', '$rootScope', '$filter', '$timeout',
-    'ArtistsFactory', 'EventsFactory', 'OrganizerFactory', 'PlaceFactory',
+    'ArtistsFactory', 'EventsFactory', 'OrganizerFactory', 'PlaceFactory', 'SearchFactory',
     function($rootScope, $scope, $filter, $timeout, ArtistsFactory, EventsFactory, OrganizerFactory,
-             PlaceFactory){
+             PlaceFactory, SearchFactory){
         $scope.limit = 12;
         $scope.artists = [];
         $scope.artistsFb = [];
