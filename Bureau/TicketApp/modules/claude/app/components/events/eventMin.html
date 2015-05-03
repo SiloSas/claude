@@ -59,12 +59,12 @@
                 <span class="dropDown" data-ng-repeat="place in event.places">
                     <i class="fa fa-map-marker" style="font-size: 30px; color: {{event.priceColor}};"></i>
                     <b style="vertical-align: text-bottom;">
-                        <a href="#/lieu/{{ place.placeId }}">{{place.name | limitTo: 25}} </a>
+                        <a href="#/places/{{ place.placeId }}">{{place.name | limitTo: 25}} </a>
                     </b>
                     <ul class="f-dropdown" ng-if="$root.window != 'small' && $root.window != 'medium'">
                         <li style="display: block;"
                             class="float-left width100p relative">
-                            <a href="#/user/{{place.placeId}}"
+                            <a href="#/places/{{place.placeId}}"
                                class="width100p padding0" style="height: 140px; overflow: hidden;
                                background-color: {{event.priceColor}}">
                                 <img class="width100p " src="{{place.imagePath}}" ng-if="place.imagePath != undefined">
@@ -91,13 +91,13 @@
                     <i class="fa fa-user"
                        style="font-size: 30px; color: {{event.priceColor}};"></i>
                     <b style="vertical-align: text-bottom;">
-                        <a href="#/user/{{organizer.organizerId}}">{{organizer.name | limitTo: 25}}</a>
+                        <a href="#/organizers/{{organizer.organizerId}}">{{organizer.name | limitTo: 25}}</a>
                     </b>
                     <ul class="f-dropdown"
                         ng-if="$root.window != 'small' && $root.window != 'medium'">
                         <li style="display: block;"
                             class="float-left width100p relative">
-                            <a href="#/user/{{organizer.organizerId}}"
+                            <a href="#/organizers/{{organizer.organizerId}}"
                                class="width100p padding0" style="height: 150px; overflow: hidden">
                                 <img class="width100p " src="{{organizer.imagePath}}">
                             </a>
