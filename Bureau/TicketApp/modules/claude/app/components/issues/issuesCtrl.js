@@ -8,19 +8,19 @@ angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$
     $scope.issuesLimit = 10;
     $scope.loadingIssues = true;
     function getIssues () {
-        IssuesFactory.getI
+        IssuesFactory.getIssues().then(function (issues) {
+            $scope.issues = issues;
+            $scope.loadingIssues = false;
+            $scope.addNewIssue = false;
+        })
     }
     getIssues();
     $scope.getIssueComments = function (id) {
-        $http.get('/issues/'+ id + '/comments ').
-            success(function (data) {
-                $scope.selectedIssue.comments = data
-            }).
-            error(function (data) {
-
-            })
-    }
-    $scope.addComment = function (i) {
+        IssuesFactory.getIssueComments(id).then(function (comments) {
+            $scope.selectedIssue.comments = comments;
+        });
+    };
+    /*$scope.addComment = function (i) {
         $http.post('/issues/' + $scope.issues[i].issueId + '/comments', {content: $scope.newComment.content}).
             success(function (data) {
                 $scope.getIssueComments($scope.issues[i].issueId)
@@ -87,6 +87,6 @@ angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$
                     });
                 }
             })
-    };
+    };*/
 
 }]);
