@@ -1,6 +1,6 @@
 angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$modal',
-    'IssuesFactory', 'InfoModal', 'StoreRequest',
-    function ($scope, $rootScope, $modal, IssuesFactory, InfoModal, StoreRequest) {
+    'IssuesFactory', 'InfoModal', 'StoreRequest', '$http',
+    function ($scope, $rootScope, $modal, IssuesFactory, InfoModal, StoreRequest, $http) {
     $scope.newComment= [];
     $scope.newIssue= [];
     $scope.issues = [];
@@ -21,7 +21,7 @@ angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$
             $scope.selectedIssue.comments = comments;
         });
     };
-    /*$scope.addComment = function (i) {
+    $scope.addComment = function (i) {
         $http.post('/issues/' + $scope.issues[i].issueId + '/comments', {content: $scope.newComment.content}).
             success(function (data) {
                 $scope.getIssueComments($scope.issues[i].issueId)
@@ -64,6 +64,6 @@ angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$
                     InfoModal.displayInfo('Désolé une erreur s\'est produite')
                 }
             })
-    };*/
+    };
 
 }]);
