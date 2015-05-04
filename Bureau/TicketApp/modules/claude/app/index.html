@@ -29,7 +29,7 @@
              autoscroll="true"
              ng-class="{'paddingTop50': $root.window == 'small'}">
         </div>
-        <div ng-show="$root.playlist.tracks.length > 0" class="ng-lecture"></div>
+        <div ng-show="$root.playlist.tracks.length > 0" class="ng-player"></div>
     </div>
     <div ng-if="$root.path != 'iframe'"
          ng-class="{'ng-hide': $root.window == 'small' && $root.path == 'home'}"
@@ -79,8 +79,12 @@
         <script src="modules/angular-component/angular-material.min.js"></script>
         <script src="modules/map/ng-map.min.js"></script>
         <script src="modules/map/gmap.js"></script>
-        <script src="modules/oboe.js"></script>
-        <script src="scripts/jquery-1.11.0.js"></script>
+        <script src="modules/oboe/oboe-browser.min.js"></script>
+        <script src="modules/oboe/oboe.js"></script>
+        <script src="modules/ui-sortable/uiSortable.js"></script>
+        <script src="scripts/libreries/jquery-1.11.0.js"></script>
+        <script src="scripts/libreries/youtubeApi.js"></script>
+        <script src="scripts/libreries/youtubeToMp4.js"></script>
         <script src="scripts/app.js"></script>
         <!--filters-->
         <script src="scripts/filters/millisecondsToTimeString.js"></script>
@@ -89,7 +93,8 @@
         <script src="scripts/services/detectSize.js"></script>
         <script src="scripts/services/refactorGeopoint.js"></script>
         <script src="scripts/services/geoloc.js"></script>
-        <!--controllers-->
+        <!--directives-->
+        <script src="scripts/directives/draggable.js"></script>
 
         <!-- Components -->
                             <!--parallax-->
@@ -144,6 +149,12 @@
 
                                <!--user-->
         <script src="components/user/userFactory.js"></script>
+
+
+                               <!--player-->
+        <script src="components/player/savePlaylistCtrl.js"></script>
+        <script src="components/player/playerCtrl.js"></script>
+        <script src="components/player/playerDirective.js"></script>
 
 
                            <!--search-->

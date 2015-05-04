@@ -29,7 +29,7 @@ angular.module('claudeApp').controller('issuesCtrl', ['$scope', '$rootScope', '$
             }).error(function (data) {
                 if (data.error == 'Credentials required') {
                     var object = {content: $scope.newComment.content};
-                    storeRequest.StoreRequest('post', '/issues', object, 'votre issue' + $scope.newIssue.title + 'est enregistée');
+                    StoreRequest.storeRequest('post', '/issues', object, 'votre issue' + $scope.newIssue.title + 'est enregistée');
                     $rootScope.$watch('lastReq', function (newVal) {
 
                         if (JSON.stringify(newVal) === '{}') {

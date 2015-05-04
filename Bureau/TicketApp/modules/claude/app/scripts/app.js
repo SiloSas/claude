@@ -22,7 +22,8 @@ angular
     'ngStorage',
     'ng-oboe',
     'ngMaterial',
-    'ngMap'
+    'ngMap',
+    'ui.sortable'
   ])
   .config(function ($routeProvider) {
     $routeProvider

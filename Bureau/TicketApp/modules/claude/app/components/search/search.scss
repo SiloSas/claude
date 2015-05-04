@@ -24,6 +24,10 @@ md-slider#timeSearchSlider > .md-thumb-container > .md-thumb > b {
   width: 100%;
   cursor: pointer;
 }
+md-sign {
+  width: 100px;
+  left: -50px;
+}
 md-slider#timeSearchSliderPhone > .md-thumb-container > .md-thumb > b {
   position: absolute;
   font-size: 20px;
@@ -33,7 +37,9 @@ md-slider#timeSearchSliderPhone > .md-thumb-container > .md-thumb > b {
   color: #ffffff;
   text-align: center;
 }
-
+.md-focus-ring {
+  width: 100px!important;
+}
 #searchBlock, #searchTopBlock {
   text-align: center;
   background: rgba(0, 0, 0, 0.5);
